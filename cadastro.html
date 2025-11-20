@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>ONG RAGRID - Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>ONG RAGRID</h1>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <nav>
+        <ul id="menu">
+            <li><a href="index.html">Início</a></li>
+
+            <li>
+                Projetos ▾
+                <ul>
+                    <li><a href="projetos.html">Ver Projetos</a></li>
+                    <li><a href="#">Doações</a></li>
+                </ul>
+            </li>
+
+            <li><a href="cadastro.html">Cadastro</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="container">
+
+    <h2>Cadastro de Voluntários</h2>
+
+    <div class="alert alert-success" id="alertSucesso" style="display:none;">
+        Cadastro enviado com sucesso!
+    </div>
+
+    <form id="formCadastro">
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Mensagem:</label>
+        <textarea name="mensagem" required></textarea>
+
+        <button class="btn" type="submit">Enviar</button>
+    </form>
+
+</section>
+
+</body>
+</html>
