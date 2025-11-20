@@ -1,0 +1,304 @@
+/* ==============================
+   DESIGN SYSTEM ONG RAGRID
+================================= */
+
+/* 🎨 Paleta de Cores (8 cores) */
+:root {
+  --color-primary: #2b7a78;
+  --color-primary-light: #3aa89f;
+  --color-secondary: #17252a;
+  --color-accent: #feffea;
+
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f2f2f2;
+  --color-neutral-400: #999999;
+  --color-neutral-800: #333333;
+
+  /* 🔤 Tipografia (5 níveis) */
+  --fs-xl: 2rem;
+  --fs-lg: 1.5rem;
+  --fs-md: 1.1rem;
+  --fs-sm: 0.9rem;
+  --fs-xs: 0.75rem;
+
+  /* 📏 Espaçamentos (escala modular) */
+  --sp-8: 8px;
+  --sp-16: 16px;
+  --sp-24: 24px;
+  --sp-32: 32px;
+  --sp-48: 48px;
+  --sp-64: 64px;
+
+  /* 🔳 Grid de 12 colunas */
+  --grid-columns: repeat(12, 1fr);
+}
+
+/* ==============================
+   ESTILO GLOBAL
+================================= */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+}
+
+h1, h2, h3 {
+  color: var(--color-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container padrão */
+.container {
+  grid-column: span 12;
+  padding: var(--sp-24);
+}
+
+/* ==============================
+   HEADER + MENU
+================================= */
+
+header {
+  grid-column: span 12;
+  background: var(--color-primary);
+  padding: var(--sp-16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--sp-16);
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+/* DROPDOWN */
+nav li ul {
+  display: none;
+  position: absolute;
+  background: var(--color-primary-light);
+  padding: var(--sp-16);
+  border-radius: 5px;
+  top: 100%;
+  left: 0;
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+nav ul li a {
+  color: white;
+  padding: var(--sp-8) var(--sp-16);
+}
+
+/* MENU MOBILE */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: var(--color-primary);
+    padding: var(--sp-16);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ==============================
+   CARDS
+================================= */
+
+.card {
+  background: var(--color-neutral-100);
+  padding: var(--sp-24);
+  border-radius: 12px;
+  box-shadow: 0 2px 5px #0002;
+  margin-bottom: var(--sp-24);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ==============================
+   BOTÕES
+================================= */
+
+.btn {
+  padding: var(--sp-16) var(--sp-24);
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: var(--fs-md);
+}
+
+.btn:hover {
+  background: var(--color-primary-light);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn:disabled {
+  background: var(--color-neutral-400);
+  cursor: not-allowed;
+}
+
+/* ==============================
+   FORMULÁRIOS
+================================= */
+
+input, textarea, select {
+  width: 100%;
+  padding: var(--sp-16);
+  border-radius: 6px;
+  border: 1px solid var(--color-neutral-400);
+  margin-bottom: var(--sp-16);
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+/* ==============================
+   ALERTAS, TOAST, MODAL
+================================= */
+
+.alert {
+  padding: var(--sp-16);
+  border-radius: 6px;
+  margin-bottom: var(--sp-16);
+}
+
+.alert-success {
+  background: #d4ffd8;
+  color: #1a7f2e;
+}
+
+.alert-error {
+  background: #ffd4d4;
+  color: #8a0000;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: var(--sp-16);
+  right: var(--sp-16);
+  padding: var(--sp-16);
+  background: var(--color-secondary);
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px #0004;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: #0006;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: var(--sp-32);
+  border-radius: 12px;
+  max-width: 400px;
+}
+
+/* ==============================
+   BADGES / TAGS
+================================= */
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: var(--fs-xs);
+  background: var(--color-primary-light);
+  color: white;
+  margin-bottom: var(--sp-16);
+}
+
+/* ==============================
+   RESPONSIVIDADE (BREAKPOINTS)
+================================= */
+
+/* XS – até 480px */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--sp-16);
+  }
+}
+
+/* SM – até 768px */
+@media (max-width: 768px) {
+  .container {
+    grid-column: span 12;
+  }
+}
+
+/* MD – até 992px */
+@media (max-width: 992px) {
+  .container {
+    grid-column: span 12;
+  }
+}
+
+/* LG – até 1200px */
+@media (max-width: 1200px) {
+  .container {
+    grid-column: span 12;
+  }
+}
+
+/* XL – acima de 1200px */
+@media (min-width: 1201px) {
+  .container {
+    grid-column: span 8;
+    margin: auto;
+  }
+}
